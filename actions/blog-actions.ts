@@ -1,25 +1,31 @@
-// "use-server";
+import { client } from "@/app/lib/sanity";
 
-// type Blog = {
-//   title: string;
-//   currentSlug: string;
-// };
+export async function getAllBlogs() {
+  const query = `*[_type == "blog"] | order(_createdAt desc){
+  title,
+  "currentSlug": slug.current,
+    duration,
+    category,
+    "smallDesc":smallDescription,
+    "imageUrl":titleImage,
+}`;
 
-// export async function getAllBlogs(): Promise<{
-//   blogs?: Blog[];
-//   error?: string;
-// }> {
-//   try {
-//     const blogs = await client.fetch(`
-//       *[_type == "blog"] | order(_createdAt desc) {
-//         title,
-//         "currentSlug": slug.current,
-//       }
-//     `);
+  const data = await client.fetch(query);
 
-//     return { blogs };
-//   } catch (err) {
-//     console.error(err);
-//     return { error: "Something went wrong" };
-//   }
-// }
+  return data;
+}
+
+export async function getBlogBySlug(slug: string) {
+  const query = `*[_type == "blog" && slug.current == '${slug}']{
+  title,
+  duration,
+  category,
+  "smallDesc":smallDescription,
+  "imageUrl":titleImage,
+  content
+}`;
+
+  const data = await client.fetch(query);
+
+  return data[0];
+}

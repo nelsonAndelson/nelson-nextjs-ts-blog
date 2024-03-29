@@ -1,6 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+root {
+  --primary: hsl(207, 62%, 43%);
+  --secondary: #0f172a;
+  --dark-background: #121212;
+}
+
+body {
+  @apply bg-[#121212];
+  @apply text-white;
+  @apply font-jost;
+  @apply leading-loose;
+}
 
 /* Buttons
 ------------------------------*/
@@ -9,10 +23,12 @@
 }
 
 .px-btn-theme {
-  @apply bg-[#347286] text-white shadow-[6px_6px_0_-1px] shadow-slate-900;
+  background: #347286;
+  @apply text-white shadow-[6px_6px_0_-1px] shadow-slate-900;
 }
 .px-btn-theme:hover {
-  @apply bg-slate-900 text-white shadow-[6px_6px_0_-1px] shadow-[#347286];
+  background-color: #0f172a;
+  @apply text-white shadow-[6px_6px_0_-1px] shadow-[#347286];
 }
 
 .px-btn-dark {
@@ -27,4 +43,13 @@
 }
 .px-btn-theme2:hover {
   @apply bg-[#347286] text-white shadow-[6px_6px_0_-1px] shadow-[#62CBDA];
+}
+
+/** LINK **/
+.link {
+  @apply text-blue-400;
+}
+
+.link:hover {
+  @apply underline;
 }

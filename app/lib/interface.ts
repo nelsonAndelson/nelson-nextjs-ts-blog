@@ -1,10 +1,18 @@
-export interface IBlog {
+export interface IArticleProps {
   title: string;
+  duration: string;
+  category: string;
+  smallDesc: string;
+  imageUrl: any;
   currentSlug: string;
 }
 
-export interface IHeaderMenu {
-  id: number;
-  name: string;
-  href: string;
+export interface IFullBlog {
+  title: string;
+  duration: string;
+  category: string;
+  smallDesc: string;
+  imageUrl: any;
+  currentSlug: string;
+  content: any;
 }

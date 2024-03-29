@@ -13,13 +13,23 @@ export default {
       type: 'slug',
       title: 'Slug of your article',
       options: {
-        source: 'title'
-      }
+        source: 'title',
+      },
     },
     {
       name: 'titleImage',
       type: 'image',
       title: 'Title Image',
+    },
+    {
+      name: 'duration',
+      type: 'string',
+      title: 'The duration of the blog article',
+    },
+    {
+      name: 'category',
+      type: 'string',
+      title: 'The category of the blog article',
     },
     {name: 'smallDescription', type: 'text', title: 'Small Description'},
     {
